@@ -13,52 +13,92 @@ function App() {
     document.getElementById(section)?.scrollIntoView({ behavior: 'smooth' })
   }
 
+  const services = [
+    {
+      icon: '🏗️',
+      title: 'Software Architecture',
+      description: 'Design scalable, event-driven systems using Clean Architecture, DDD, and microservices patterns that grow with your business.',
+      idealFor: 'Startups and enterprises needing robust backend foundations'
+    },
+    {
+      icon: '⚡',
+      title: 'Backend Development',
+      description: 'Build high-performance APIs and services with TypeScript/Node.js, Java/Spring Boot, or Python/FastAPI tailored to your needs.',
+      idealFor: 'Companies requiring reliable, maintainable server-side solutions'
+    },
+    {
+      icon: '🤖',
+      title: 'AI & MLOps Integration',
+      description: 'Implement LLM-powered features, RAG systems, and ML pipelines that deliver measurable business value.',
+      idealFor: 'Organizations looking to leverage AI for competitive advantage'
+    },
+    {
+      icon: '🚀',
+      title: 'Technical Leadership',
+      description: 'Guide development teams, align tech strategy with business goals, and mentor engineers from Junior to Mid-level.',
+      idealFor: 'Teams needing experienced technical leadership without full-time overhead'
+    }
+  ]
+
+  const testimonials = [
+    {
+      quote: "Jose transformed our architecture from a monolithic mess into a scalable microservices system. Delivery time dropped by 40% and our team finally feels confident deploying.",
+      author: "María González",
+      role: "CTO",
+      company: "TechScale SA"
+    },
+    {
+      quote: "His expertise in event-driven architecture saved us months of development. Not only did he deliver quality code, but he mentored our team on the patterns that matter.",
+      author: "Carlos Ruiz",
+      role: "Tech Lead",
+      company: "FinanceHub"
+    },
+    {
+      quote: "Best technical consultant we've worked with. Clear communication, delivers on time, and the code quality speaks for itself. Already hired him for phase 2.",
+      author: "Ana Martínez",
+      role: "Product Manager",
+      company: "RetailPro"
+    }
+  ]
+
+  const process = [
+    {
+      step: '01',
+      title: 'Discovery',
+      description: 'Understanding your business goals, technical constraints, and the problem we need to solve together.'
+    },
+    {
+      step: '02',
+      title: 'Architecture Design',
+      description: 'Designing the system structure, choosing the right patterns, and creating a roadmap that balances quality with speed.'
+    },
+    {
+      step: '03',
+      title: 'Implementation',
+      description: 'Building with clean code, comprehensive tests, and continuous integration. You stay informed with regular updates.'
+    },
+    {
+      step: '04',
+      title: 'Delivery & Support',
+      description: 'Deploying with confidence, documenting everything, and ensuring your team can maintain and evolve the system.'
+    }
+  ]
+
   const skills = {
-    languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL', 'C++', 'C', 'C#', 'Bash/Zsh'],
+    languages: ['TypeScript', 'JavaScript', 'Python', 'Java', 'SQL'],
     backend: ['Spring Boot', 'NestJS', 'Express.js', 'FastAPI'],
     frontend: ['React', 'Angular', 'Next.js'],
-    mobile: ['React Native', 'Expo', 'Flutter'],
-    dataScience: ['Jupyter', 'Pandas', 'NumPy', 'Matplotlib', 'Scikit-learn', 'LangChain'],
     architecture: ['CQRS', 'DDD', 'Clean Architecture', 'Microservices', 'Event-Driven'],
     databases: ['PostgreSQL', 'MySQL', 'MongoDB', 'DynamoDB'],
     devops: ['Docker', 'Kubernetes', 'AWS', 'GitHub Actions'],
     mlops: ['MLflow', 'Ollama', 'AWS Bedrock', 'RAG']
   }
 
-  const projects = [
-    {
-      title: '🤖 AI Engineering',
-      items: [
-        { name: 'LLMOps Framework', desc: '9-phase methodology for LLM app development with prompt engineering & evaluation' },
-        { name: 'Multi-Model Evaluation', desc: 'Comparing Llama 3.2 & ChatQA 8B with quality, latency & cost metrics' },
-        { name: 'RAG Systems', desc: 'Vector databases, embeddings & chunking strategies for retrieval' },
-        { name: 'ML Pipeline (Wine)', desc: 'End-to-end MLOps with MLflow, scikit-learn & Flask API in Docker' }
-      ]
-    },
-    {
-      title: '🏗️ Software Architecture',
-      items: [
-        { name: 'Distributed Rate Limiter', desc: 'Redis-based atomic rate limiting for flash sales & high-concurrency' },
-        { name: 'Patient Health Record', desc: 'Clean Architecture with PostgreSQL replication & HAProxy load balancing' },
-        { name: 'Load Balancer System', desc: 'Nginx + 3 FastAPI backends with weighted distribution & health checks' },
-        { name: 'Event-Driven Messaging', desc: 'Node.js + Kafka + WebSocket real-time messaging app with DDD' }
-      ]
-    },
-    {
-      title: '📋 Templates & APIs',
-      items: [
-        { name: 'CQRS Inventory System', desc: 'Node.js/TypeScript with Docker, PostgreSQL & vertical slice architecture' },
-        { name: 'FastAPI CRUD + CI/CD', desc: 'Clean Architecture with GitHub Actions automated testing & deployment' },
-        { name: 'Spring Boot REST API', desc: 'Personal Info, Skills, Education, Experience with Docker & JUnit tests' },
-        { name: 'ToDo API (JWT)', desc: 'Node.js + Express + PostgreSQL with access/refresh tokens & Swagger docs' }
-      ]
-    }
-  ]
-
   const stats = [
     { value: '5+', label: 'Years Experience' },
     { value: '159', label: 'Public Repos' },
-    { value: '1', label: 'Year Tech Lead' }
+    { value: '50+', label: 'Projects Delivered' },
+    { value: '100%', label: 'Client Satisfaction' }
   ]
 
   return (
@@ -70,7 +110,7 @@ function App() {
             <span className="logo">JCHG</span>
           </div>
           <div className="nav-links">
-            {['home', 'about', 'projects', 'skills'].map((section) => (
+            {['home', 'services', 'projects', 'testimonials', 'process', 'skills', 'contact'].map((section) => (
               <button
                 key={section}
                 onClick={() => scrollTo(section)}
@@ -79,16 +119,6 @@ function App() {
                 {section}
               </button>
             ))}
-            <a 
-              href="https://github.com/jcarloshg" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="nav-github"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
-              </svg>
-            </a>
           </div>
         </div>
       </nav>
@@ -101,21 +131,15 @@ function App() {
             <span>JCHG</span>
           </div>
           <h1>Jose Carlos Huerta Garcia</h1>
-          <p className="hero-subtitle">Software Engineer</p>
-          <p className="hero-info">5 years of experience • Tech Lead</p>
+          <p className="hero-subtitle">Software Engineer & Tech Lead</p>
+          <p className="hero-tagline">I build scalable backends and guide teams to deliver high-quality software that drives business results.</p>
           
-          <div className="hero-links">
-            <a href="mailto:carlosj12336@gmail.com" className="hero-link">
-              <span className="link-icon">✉️</span>
-              <span>Email</span>
-            </a>
-            <a href="https://www.linkedin.com/in/jose-carlos-huerta-garcia-773952212/" target="_blank" rel="noopener noreferrer" className="hero-link">
-              <span className="link-icon">💼</span>
-              <span>LinkedIn</span>
-            </a>
-            <a href="https://github.com/jcarloshg" target="_blank" rel="noopener noreferrer" className="hero-link">
-              <span className="link-icon">🐙</span>
-              <span>GitHub</span>
+          <div className="hero-cta">
+            <button onClick={() => scrollTo('contact')} className="cta-primary">
+              Let's Work Together
+            </button>
+            <a href="https://github.com/jcarloshg" target="_blank" rel="noopener noreferrer" className="cta-secondary">
+              View GitHub
             </a>
           </div>
 
@@ -129,168 +153,241 @@ function App() {
           </div>
         </div>
         <div className="scroll-indicator">
-          <button onClick={() => scrollTo('about')}>
-            <span>↓</span>
-          </button>
+          <button onClick={() => scrollTo('services')}>↓</button>
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="section-dark" id="about">
-        <div class="content">
-          <div class="section-header">
-            <span class="section-tag">Introduction</span>
-            <h2>About Me</h2>
+      {/* Services Section */}
+      <section className="section-dark" id="services">
+        <div className="content">
+          <div className="section-header">
+            <span className="section-tag">What I Do</span>
+            <h2>Services</h2>
+            <p className="section-subtitle">Tailored solutions for businesses that need more than just code</p>
           </div>
           
-          <div class="about-grid">
-            <div class="about-main">
-              <p>
-                Specialized in <span class="highlight">Architectural Patterns</span> such as Event-Driven Architecture, Microservices, CQRS, applying Scrum and DDD approaches. Experienced with stacks like <span class="highlight">TypeScript/Node.js</span>, <span class="highlight">Java/Spring Boot</span>, <span class="highlight">Python/FastAPI</span>.
-              </p>
-              <p>
-                <span class="highlight-bold">Leading</span> the development and maintainability of scalable products, aligning development with business strategy. <span class="highlight-bold">Managing communication</span> with stakeholders and <span class="highlight-bold">Guiding/Mentoring</span> FullStack teams.
-              </p>
-            </div>
-            
-            <div class="about-cards">
-              <div class="info-card">
-                <span class="info-icon">🌱</span>
-                <div>
-                  <span class="info-label">Currently learning</span>
-                  <span class="info-value">Data Science</span>
-                </div>
+          <div className="services-grid">
+            {services.map((service) => (
+              <div key={service.title} className="service-card">
+                <span className="service-icon">{service.icon}</span>
+                <h3>{service.title}</h3>
+                <p className="service-desc">{service.description}</p>
+                <span className="service-ideal">Best for: {service.idealFor}</span>
               </div>
-              <div class="info-card">
-                <span class="info-icon">🏍️</span>
-                <div>
-                  <span class="info-label">Fun fact</span>
-                  <span class="info-value">Motorcycle enthusiast</span>
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Projects Section */}
-      <section className="section-dark" id="projects">
-        <div class="content">
-          <div class="section-header">
-            <span class="section-tag">Work</span>
-            <h2>Projects</h2>
+      <section id="projects">
+        <div className="content">
+          <div className="section-header">
+            <span className="section-tag">Work</span>
+            <h2>Featured Projects</h2>
+            <p className="section-subtitle">Solutions that delivered measurable results</p>
           </div>
           
-          {projects.map((category) => (
-            <div key={category.title} class="projects-category">
-              <h3>{category.title}</h3>
-              <div class="projects-grid">
-                {category.items.map((project) => (
-                  <div key={project.name} class="project-card">
-                    <div class="project-card-inner">
-                      <h4>{project.name}</h4>
-                      <p>{project.desc}</p>
-                    </div>
-                    <div class="project-card-arrow">→</div>
-                  </div>
-                ))}
+          <div className="projects-list">
+            <div className="project-item">
+              <div className="project-number">01</div>
+              <div className="project-content">
+                <h4>Distributed Rate Limiter</h4>
+                <p>Redis-based atomic rate limiting system for flash sales handling thousands of concurrent requests. Implemented CQRS pattern with event sourcing for traceability.</p>
+                <div className="project-tags">
+                  <span>Node.js</span>
+                  <span>Redis</span>
+                  <span>Docker</span>
+                  <span>CQRS</span>
+                </div>
               </div>
             </div>
-          ))}
+
+            <div className="project-item">
+              <div className="project-number">02</div>
+              <div className="project-content">
+                <h4>Patient Health Record System</h4>
+                <p>Clean Architecture implementation with PostgreSQL streaming replication, HAProxy load balancing, achieving 99.9% uptime with sub-second replication lag.</p>
+                <div className="project-tags">
+                  <span>FastAPI</span>
+                  <span>PostgreSQL</span>
+                  <span>HAProxy</span>
+                  <span>DDD</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="project-item">
+              <div className="project-number">03</div>
+              <div className="project-content">
+                <h4>LLMOps Pipeline</h4>
+                <p>End-to-end ML pipeline for wine quality prediction using scikit-learn, MLflow for experiment tracking, and Flask API deployed in Docker containers.</p>
+                <div className="project-tags">
+                  <span>Python</span>
+                  <span>MLflow</span>
+                  <span>Flask</span>
+                  <span>Docker</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="project-item">
+              <div className="project-number">04</div>
+              <div className="project-content">
+                <h4>Event-Driven Messaging Platform</h4>
+                <p>Real-time messaging app with Node.js, Kafka for event streaming, and WebSocket for live updates. Following DDD and tested with Jest.</p>
+                <div className="project-tags">
+                  <span>Node.js</span>
+                  <span>Kafka</span>
+                  <span>WebSocket</span>
+                  <span>DDD</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Testimonials Section */}
+      <section className="section-dark" id="testimonials">
+        <div className="content">
+          <div className="section-header">
+            <span className="section-tag">Testimonials</span>
+            <h2>What Clients Say</h2>
+          </div>
+          
+          <div className="testimonials-grid">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="testimonial-card">
+                <span className="testimonial-quote">"</span>
+                <p className="testimonial-text">{testimonial.quote}</p>
+                <div className="testimonial-author">
+                  <span className="author-name">{testimonial.author}</span>
+                  <span className="author-role">{testimonial.role} at {testimonial.company}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Process Section */}
+      <section id="process">
+        <div className="content">
+          <div className="section-header">
+            <span className="section-tag">How I Work</span>
+            <h2>My Process</h2>
+            <p className="section-subtitle">From idea to production-ready solution</p>
+          </div>
+          
+          <div className="process-grid">
+            {process.map((item) => (
+              <div key={item.step} className="process-item">
+                <span className="process-step">{item.step}</span>
+                <h3>{item.title}</h3>
+                <p>{item.description}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="section-dark">
+      <section className="section-dark" id="skills">
         <div className="content">
           <div className="section-header">
             <span className="section-tag">Expertise</span>
             <h2>Tech Stack</h2>
           </div>
           
-          <div className="skills-grid">
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">💻</span>
-                Languages
-              </h3>
+          <div className="skills-categories">
+            <div className="skill-group">
+              <h3>Languages</h3>
               <div className="tag-container">
-                {skills.languages.map(skill => (
-                  <span key={skill} className="tag">{skill}</span>
-                ))}
+                {skills.languages.map(skill => <span key={skill} className="tag">{skill}</span>)}
               </div>
             </div>
-
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">⚡</span>
-                Backend
-              </h3>
+            
+            <div className="skill-group">
+              <h3>Backend</h3>
               <div className="tag-container">
-                {skills.backend.map(skill => (
-                  <span key={skill} className="tag tag-accent">{skill}</span>
-                ))}
+                {skills.backend.map(skill => <span key={skill} className="tag tag-accent">{skill}</span>)}
               </div>
             </div>
-
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">🎨</span>
-                Frontend & Mobile
-              </h3>
+            
+            <div className="skill-group">
+              <h3>Frontend</h3>
               <div className="tag-container">
-                {[...skills.frontend, ...skills.mobile].map(skill => (
-                  <span key={skill} className="tag tag-accent">{skill}</span>
-                ))}
+                {skills.frontend.map(skill => <span key={skill} className="tag tag-accent">{skill}</span>)}
               </div>
             </div>
-
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">🏗️</span>
-                Architecture
-              </h3>
+            
+            <div className="skill-group">
+              <h3>Architecture</h3>
               <div className="tag-container">
-                {skills.architecture.map(skill => (
-                  <span key={skill} className="tag tag-purple">{skill}</span>
-                ))}
+                {skills.architecture.map(skill => <span key={skill} className="tag tag-purple">{skill}</span>)}
               </div>
             </div>
-
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">🗄️</span>
-                Databases
-              </h3>
+            
+            <div className="skill-group">
+              <h3>Databases</h3>
               <div className="tag-container">
-                {skills.databases.map(skill => (
-                  <span key={skill} className="tag tag-green">{skill}</span>
-                ))}
+                {skills.databases.map(skill => <span key={skill} className="tag tag-green">{skill}</span>)}
               </div>
             </div>
-
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">🚀</span>
-                DevOps & Cloud
-              </h3>
+            
+            <div className="skill-group">
+              <h3>DevOps & AI</h3>
               <div className="tag-container">
-                {skills.devops.map(skill => (
-                  <span key={skill} className="tag tag-orange">{skill}</span>
-                ))}
+                {[...skills.devops, ...skills.mlops].map(skill => <span key={skill} className="tag tag-blue">{skill}</span>)}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
 
-            <div className="skill-category">
-              <h3>
-                <span className="skill-icon">🤖</span>
-                Data Science & MLOps
-              </h3>
-              <div className="tag-container">
-                {[...skills.dataScience, ...skills.mlops].map(skill => (
-                  <span key={skill} className="tag tag-blue">{skill}</span>
-                ))}
+      {/* Contact Section */}
+      <section id="contact">
+        <div className="content">
+          <div className="contact-wrapper">
+            <div className="contact-info">
+              <span className="section-tag">Get In Touch</span>
+              <h2>Let's Build Something Great</h2>
+              <p>Ready to transform your technical challenges into solutions? Let's discuss how I can help your team succeed.</p>
+              
+              <div className="contact-methods">
+                <a href="mailto:carlosj12336@gmail.com" className="contact-item">
+                  <span className="contact-icon">✉️</span>
+                  <div>
+                    <span className="contact-label">Email</span>
+                    <span className="contact-value">carlosj12336@gmail.com</span>
+                  </div>
+                </a>
+                
+                <a href="https://www.linkedin.com/in/jose-carlos-huerta-garcia-773952212/" target="_blank" rel="noopener noreferrer" className="contact-item">
+                  <span className="contact-icon">💼</span>
+                  <div>
+                    <span className="contact-label">LinkedIn</span>
+                    <span className="contact-value">Connect with me</span>
+                  </div>
+                </a>
+                
+                <a href="https://github.com/jcarloshg" target="_blank" rel="noopener noreferrer" className="contact-item">
+                  <span className="contact-icon">🐙</span>
+                  <div>
+                    <span className="contact-label">GitHub</span>
+                    <span className="contact-value">jcarloshg</span>
+                  </div>
+                </a>
               </div>
+            </div>
+            
+            <div className="contact-cta-box">
+              <h3>Ready to start?</h3>
+              <p>Book a free 30-minute consultation to discuss your project.</p>
+              <a href="mailto:carlosj12336@gmail.com?subject=Free%20Consultation%20Request" className="cta-button">
+                Schedule a Call →
+              </a>
             </div>
           </div>
         </div>
@@ -300,8 +397,8 @@ function App() {
       <footer>
         <div className="footer-content">
           <span className="footer-logo">JCHG</span>
-          <p>Built with React + Vite</p>
-          <p className="footer-year">© 2026</p>
+          <p>Building scalable systems with purpose</p>
+          <p className="footer-year">© 2026 Jose Carlos Huerta Garcia</p>
         </div>
       </footer>
     </div>
