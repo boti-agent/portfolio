@@ -1,0 +1,384 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background-color: #FAFAFA;
+  color: #1A1A1A;
+  line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: rgba(250, 250, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid #EAE0D5;
+  z-index: 50;
+  padding: 1rem 1.5rem;
+}
+
+.nav-content {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #4A7B59;
+}
+
+.nav-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.nav-links button {
+  background: none;
+  border: none;
+  color: #1A1A1A;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-transform: capitalize;
+  transition: color 0.2s;
+}
+
+.nav-links button:hover,
+.nav-links button.active {
+  color: #4A7B59;
+}
+
+/* Sections */
+section {
+  padding: 6rem 1.5rem;
+}
+
+.section-dark {
+  background-color: #EAE0D5;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  background-color: #FAFAFA;
+}
+
+.hero-content {
+  max-width: 42rem;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  color: #4A7B59;
+  font-weight: 600;
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.hero-info {
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.hero-links {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.875rem;
+}
+
+.hero-links a {
+  color: #4A7B59;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.hero-links a:hover {
+  opacity: 0.7;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2.5rem;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator button {
+  background: none;
+  border: none;
+  color: #4A7B59;
+  cursor: pointer;
+  font-size: 1.5rem;
+  transition: opacity 0.2s;
+}
+
+.scroll-indicator button:hover {
+  opacity: 0.7;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Content containers */
+.content {
+  max-width: 768px;
+  margin: 0 auto;
+}
+
+.content h2 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #1A1A1A;
+  margin-bottom: 2rem;
+}
+
+/* About */
+.about-text p {
+  color: #333;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.highlight {
+  color: #4A7B59;
+  font-weight: 600;
+}
+
+.highlight-white {
+  color: #1A1A1A;
+  font-weight: 600;
+}
+
+.cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.card {
+  background-color: #FAFAFA;
+  border: 1px solid #EAE0D5;
+  border-radius: 0.5rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.card-label {
+  font-size: 0.75rem;
+  color: #666;
+  margin-bottom: 0.25rem;
+}
+
+.card-value {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.card-value.teal {
+  color: #4A7B59;
+}
+
+.card-value.white {
+  color: #1A1A1A;
+}
+
+/* Skills */
+.skills-group {
+  margin-bottom: 1.5rem;
+}
+
+.skills-group h3 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: #1A1A1A;
+  margin-bottom: 0.75rem;
+}
+
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.tag-teal {
+  background-color: rgba(74, 123, 89, 0.15);
+  color: #4A7B59;
+  border: 1px solid #4A7B59;
+}
+
+.tag-purple {
+  background-color: rgba(74, 123, 89, 0.1);
+  color: #4A7B59;
+  border: 1px solid #4A7B59;
+}
+
+.tag-blue {
+  background-color: rgba(74, 123, 89, 0.1);
+  color: #4A7B59;
+  border: 1px solid #4A7B59;
+}
+
+/* Projects */
+.projects-category {
+  margin-bottom: 2rem;
+}
+
+.projects-category h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #4A7B59;
+  margin-bottom: 1rem;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.project-card {
+  background-color: #FAFAFA;
+  border: 1px solid #EAE0D5;
+  border-radius: 0.5rem;
+  padding: 1.25rem;
+  transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  border-color: #4A7B59;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(74, 123, 89, 0.1);
+}
+
+.project-card h4 {
+  color: #1A1A1A;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p {
+  color: #555;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+/* Certifications */
+.cert-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.cert-item {
+  background-color: #FAFAFA;
+  border: 1px solid #EAE0D5;
+  border-radius: 0.5rem;
+  padding: 1rem 1.25rem;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+/* Footer */
+footer {
+  padding: 2rem 1.5rem;
+  background-color: #EAE0D5;
+  text-align: center;
+  color: #555;
+  font-size: 0.875rem;
+}
+
+footer a {
+  color: #4A7B59;
+  text-decoration: none;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (min-width: 768px) {
+  .hero h1 {
+    font-size: 3rem;
+  }
+}
+
+/* Tag green (reusing teal) */
+.tag-green {
+  background-color: rgba(74, 123, 89, 0.15);
+  color: #4A7B59;
+  border: 1px solid #4A7B59;
+}
+
+.tag-orange {
+  background-color: rgba(74, 123, 89, 0.1);
+  color: #4A7B59;
+  border: 1px solid #4A7B59;
+}
+
+/* Buttons & Links accent color */
+a {
+  color: #4A7B59;
+}
+
+button:focus, a:focus {
+  outline: 2px solid #4A7B59;
+  outline-offset: 2px;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FAFAFA;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EAE0D5;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4A7B59;
+}
